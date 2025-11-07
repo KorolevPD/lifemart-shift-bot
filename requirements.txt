@@ -1,0 +1,16 @@
+# --- Core ---
+aiogram==3.13.1
+SQLAlchemy==2.0.36
+pydantic==2.9.2
+pydantic-settings==2.3.4
+
+# --- Utils ---
+structlog==24.4.0
+python-dotenv==1.0.1
+
+# --- Dev & Testing ---
+pytest==8.3.3
+pytest-asyncio==0.24.0
+black==24.10.0
+isort==5.13.2
+mypy==1.12.1
