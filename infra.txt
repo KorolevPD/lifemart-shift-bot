@@ -1,0 +1,45 @@
+lifemart_shift_bot/
+│
+├── bot/                              # Слой взаимодействия с Telegram
+│   ├── handlers/                     # Обработчики команд и сообщений
+│   │   ├── admin.py                  # Команды администратора (/add_user, /remove_user)
+│   │   ├── schedule.py               # Работа с расписанием (/my_shifts, /submit_schedule)
+│   │   └── common.py                 # Общие команды (/start, /help)
+│   ├── keyboards/                    # Inline и Reply клавиатуры
+│   ├── middlewares/                  # Middleware для фильтрации пользователей, логирования и т.п.
+│   └── bot_factory.py                # Инициализация объекта бота и диспетчера
+│
+├── core/                             # Бизнес-логика (use-cases, сервисы)
+│   ├── usecases/                     # Отдельные сценарии использования
+│   │   ├── add_user.py               # Логика добавления пользователя
+│   │   ├── remove_user.py            # Логика удаления пользователя
+│   │   └── get_schedule.py           # Получение расписания
+│   ├── interfaces/                   # Контракты (абстрактные классы репозиториев)
+│   │   ├── user_repo.py              # Интерфейс репозитория пользователей
+│   │   └── schedule_repo.py          # Интерфейс репозитория расписаний
+│   └── services/                     # Общие сервисы, например уведомления или валидация
+│
+├── domain/                           # Доменные модели (без зависимостей)
+│   ├── user.py                       # Модель User с полями id, name, telegram_id, role
+│   ├── shift.py                      # Модель Shift (дата, время, статус)
+│   └── schedule.py                   # Модель Schedule (список смен пользователя)
+│
+├── infrastructure/                   # Инфраструктурные детали (реализация интерфейсов)
+│   ├── db/
+│   │   ├── models.py                 # SQLAlchemy модели таблиц
+│   │   ├── repositories.py           # Реализация репозиториев (UserRepo, ScheduleRepo)
+│   │   └── database.py               # Инициализация БД, подключение, сессии
+│   ├── config.py                     # Конфигурации проекта (env, токен, URL БД)
+│   └── logger.py                     # Настройка structlog
+│
+├── tests/                            # Тесты
+│   ├── test_users.py                 # Тесты логики пользователей
+│   ├── test_schedule.py              # Тесты расписаний
+│   └── conftest.py                   # Фикстуры pytest
+│
+├── main.py                           # Точка входа в приложение (инициализация и запуск бота)
+├── .env                              # Переменные окружения (BOT_TOKEN, DATABASE_URL и т.п.)
+├── requirements.txt                  # Зависимости проекта
+├── pyproject.toml                    # Конфиги линтеров и инструментов
+├── Makefile                          # Утилиты для разработки (run, test, fmt, check)
+└── README.md                         # Документация проекта
