@@ -7,12 +7,12 @@
 
 ## Технологии
 
-Язык: Python 3.11
-Бот-фреймворк: [aiogram](https://docs.aiogram.dev/)
-ORM: SQLAlchemy
-База данных: PostgreSQL
-Логирование: structlog
-Тесты: pytest + pytest-asyncio
-Форматирование: black + isort
-Типизация: mypy
-Контейнеризация: Docker
+* Язык: Python 3.11
+* Бот-фреймворк: aiogram
+* ORM: SQLAlchemy
+* База данных: PostgreSQL
+* Логирование: structlog
+* Тесты: pytest + pytest-asyncio
+* Форматирование: black + isort
+* Типизация: mypy
+* Контейнеризация: Docker
